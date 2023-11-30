@@ -7,13 +7,23 @@ mensagem_final = "Obrigado por usar o programa!"
 
 # Printando cabeçalho.
 
-print("{}CALCULADORA DE I.M.C.\n{}{}autor: {}\n".format(blank_space, blank_space, blank_space, author_name))
+print("{0}CALCULADORA DE I.M.C.\n{0}{0}autor: {1}\n".format(blank_space, author_name))
 
 # Inicializando e obtendo do usuário as variáveis dos dados da ficha.
 
-nome = input("Insira seu nome:\n>>> ")
-altura = int(input("Sua altura (em centímetros):\n>>> "))
-peso = int(input("Por fim, seu peso (em kg):\n>>> "))
+nome = input("- Insira seu nome:\n>>> ")
+altura = int(input("- Sua altura (em centímetros):\n>>> "))
+peso = input("- Por fim, seu peso (em kg, exemplo: 98 ou 75.54)\n>>> ")
+
+# Executando Branches de inicialização do "Peso"
+
+if "." in peso:
+    peso = float(peso)
+elif "," in peso:
+    peso = input("(Digite o peso novamente, utilizando ponto \'.\' ao invés de vírgula \',\')\n>>> ")
+    peso = float(peso)
+elif peso.isdigit() == True:
+    peso = int(peso)
 
 # Calculando IMC.
 
@@ -42,4 +52,3 @@ elif imc >= 40:
 
 print("\n{}{}".format(blank_space, mensagem_final))
 print("Fontes: https://www.tuasaude.com/calculadora/imc/")
-
