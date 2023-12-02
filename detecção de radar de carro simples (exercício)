@@ -1,0 +1,22 @@
+velocidade = 61
+local_carro = 99
+
+RADAR_1 = 60
+LOCAL_1 = 100
+RADAR_RANGE = 1
+
+alcance_radar_1 = range(LOCAL_1 - RADAR_RANGE, LOCAL_1 + RADAR_RANGE + 1)
+velocidade_carro_passou_radar_1 = velocidade > RADAR_1
+carro_passou_radar_1 = local_carro in alcance_radar_1
+carro_multado_radar_1 = velocidade_carro_passou_radar_1 and carro_passou_radar_1
+
+if velocidade_carro_passou_radar_1:
+    print(f"O carro passou do limite de {RADAR_1} km.")
+if carro_passou_radar_1:
+    print("O carro passou no Radar 1.")
+elif carro_passou_radar_1 == False:
+    print("O carro não passou no Radar 1.")
+if carro_multado_radar_1:
+    print("O carro foi multado.")
+elif carro_multado_radar_1 == False:
+    print("O carro não foi multado.")
