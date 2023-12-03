@@ -8,9 +8,9 @@ if inteiro:
     numero_impar = numero % 2 != 0
 
     if numero_par:
-        print('Este número é par.')
+        print(f'O número {numero} é par.')
     elif numero_impar:
-        print("Este número é ímpar")
+        print(f'O número {numero} é ímpar.')
 
 else:
     print("Você não digitou um número inteiro!")
