@@ -1,7 +1,6 @@
 numero = input("Digite um número inteiro: ")
 
 inteiro = numero.isdigit() == True
-nao_inteiro = numero.isdigit() == False
 
 if inteiro:
     numero = int(numero)
