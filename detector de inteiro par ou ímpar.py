@@ -13,4 +13,4 @@ if inteiro:
         print("Este número é ímpar")
 
 else:
-    print("Você não digitou um número inteiro")
+    print("Você não digitou um número inteiro!")
