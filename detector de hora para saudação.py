@@ -1,8 +1,6 @@
 horas = input("Que horas são?\n>>> ")
 
-apenas_hora = horas.isdigit()
-
-if apenas_hora:
+try:
     horas = int(horas)
     manha = horas in range(0, 12)
     tarde = horas in range(12, 18)
@@ -15,5 +13,5 @@ if apenas_hora:
         print("\nBoa noite!")
     else:
         print("\nDigite um horário válido! Ex: 0, 3, 15, 18, 23 (entre 0 e 23 horas)")
-else:
+except:
     print("\nDigite apenas a hora. Ex: 0, 3, 15, 18, 23 (entre 0 e 23 horas)")
