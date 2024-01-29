@@ -1,3 +1,4 @@
+import os
 palavra_secreta = "coragem"
 letras_acertadas = ""
 tentativas = 0
@@ -30,6 +31,7 @@ while True:
         escolha = input("\nDeseja jogar de novo? Digite 1 - sim ou 2 - não.\n>>> ")
         if escolha == '1':
             print("................Retornando................\n\n")
+            os.system('cls')
             print("Digite uma tentativa:")
             letras_acertadas = ""
             tentativas = 0
