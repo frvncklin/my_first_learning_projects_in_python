@@ -7,8 +7,11 @@ verificador = ''
 verificador_alt = ''
 contador_erros = 0
 
+import os
 
 print("BEM VINDO A SUA LISTA DE COMPRAS SIMPLES!\n\tCortesia da daemon.dev")
+nome_lista = input("\nColoque um nome na sua lista.\n>>> ")
+print("")
 
 # Menu.
 
@@ -23,8 +26,8 @@ while True:
     
     if opcao_menu == "1":
         print('')
-        print('\tMINHA LISTA:')
-        print('\t------------\n')
+        print(f'\t{nome_lista.upper()}:')
+        print(f'\t', "-" * (len(nome_lista) - 1))
         for item in enumerate(lista, start=1):
             indice, nome = item
             print(f'{indice} --> {nome}')
@@ -35,6 +38,7 @@ while True:
         
         escolha_continuar = input('Continuar - 1 ou sair - 2. \n>>> ')
         if escolha_continuar.startswith("1"):
+            os.system("cls")
             print('')
             continue
         else:
@@ -43,7 +47,7 @@ while True:
 # Adicionar item à lista.
         
     elif opcao_menu == "2":
-        adicao = input('\n- Digite o item que deseja adicionar à lista \nSe você separa por vírgulas, adicionaremos mais de um!\n(Ex: Sabonete, biscoito, arroz)\n\n>>> ')
+        adicao = input('\n- Digite o item que deseja adicionar à lista \nSe você separa por vírgulas, adicionaremos mais de um!\n(Ex: Sabonete, biscoito, arroz)\n\n>>> ').lower()
         item = ''
         verificador = ''
 
@@ -114,6 +118,7 @@ while True:
         escolha_continuar = input('Continuar - 1 ou sair - 2. \n>>> ')
         if escolha_continuar.startswith("1"):
             print('')
+            os.system("cls")
             continue
         else:
             break
@@ -124,15 +129,15 @@ while True:
 
         # Visualizando a lista para escolher os itens que quer remover.
         print('')
-        print('\tMINHA LISTA:')
-        print('\t------------\n')
+        print(f'\t{nome_lista.upper()}:')
+        print(f'\t', "-" * (len(nome_lista) - 1))
         for item in enumerate(lista, start=1):
             indice, nome = item
             print(f'{indice} --> {nome}')
         print('------------')
         print('')
 
-        remover = input('\n- Digite o(s) item(s) que deseja remover da lista (nome ou indice).\nSe você separar por vírgulas, removeremos mais de um!\n(Ex: arroz, feijão, salada, 2, 3)\n\n>>> ')
+        remover = input('\n- Digite o(s) item(s) que deseja remover da lista (nome ou indice).\nSe você separar por vírgulas, removeremos mais de um!\n(Ex: arroz, feijão, salada, 2, 3)\n\n>>> ').lower()
         # item = ''
         # verificador = ''       # Detalhe estético.
         # verificador_alt = ''
@@ -239,6 +244,7 @@ while True:
 
         escolha_continuar = input('Continuar - 1 ou sair - 2. \n>>> ')
         if escolha_continuar.startswith("1"):
+            os.system("cls")
             print('')
             continue
         else:
