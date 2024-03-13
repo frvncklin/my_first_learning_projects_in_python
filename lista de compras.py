@@ -249,3 +249,8 @@ while True:
             continue
         else:
             break
+            
+# Caso o usuário digite uma opção inválida:
+    
+    else:
+        print("\nPor favor digite uma opção válida!\n")
