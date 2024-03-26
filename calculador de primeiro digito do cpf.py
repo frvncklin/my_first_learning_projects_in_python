@@ -26,6 +26,7 @@ while True:
         lista_numeros_cpf_calculo = []
         validador = 10          
         determinante_primeiro_digito = 0 
+        cpf_corrigido = ''
 
         for numero in cpf:
             lista_numeros_cpf.append(numero)
