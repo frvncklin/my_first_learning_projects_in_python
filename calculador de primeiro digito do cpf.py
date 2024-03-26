@@ -1,9 +1,5 @@
 import os
 
-validador = 10
-determinante_primeiro_digito = 0
-cpf_corrigido = ""
-
 while True:
 
     cpf = input("Digite os 9 primeiros dígitos do seu CPF (somente números):\n>>> ")
