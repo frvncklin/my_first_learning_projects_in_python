@@ -1,7 +1,5 @@
 import os
 
-lista_numeros_cpf = []
-lista_numeros_cpf_calculo = []
 validador = 10
 determinante_primeiro_digito = 0
 cpf_corrigido = ""
@@ -25,6 +23,9 @@ while True:
     else:
 
         lista_numeros_cpf = []
+        lista_numeros_cpf_calculo = []
+        validador = 10          
+        determinante_primeiro_digito = 0 
 
         for numero in cpf:
             lista_numeros_cpf.append(numero)
@@ -34,8 +35,6 @@ while True:
             lista_numeros_cpf_calculo.append(digito)
             determinante_primeiro_digito += lista_numeros_cpf_calculo[indice]
             validador -= 1
-
-        digito = 0
 
         # Realizando operações no determinate do primeiro dígito.
             
@@ -58,9 +57,6 @@ while True:
                 cpf_corrigido += "X"
 
         print(f"\n---> O seu CPF será: {cpf_corrigido}")    
-
-    validador = 10          # Reiniciando o valor do validador
-    determinante_primeiro_digito = 0    # Reiniciando o valor do determinante do primeiro dígito.
 
     escolha = input("\n.........................\nDeseja continuar? 1 - sim ou 2 - não.\n>>> ")
 
