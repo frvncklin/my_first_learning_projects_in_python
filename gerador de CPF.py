@@ -91,7 +91,6 @@ while True:
         for indice, digito in enumerate(lista_numeros_cpf):
 
             if (indice + 1) < 9:
-
                 cpf_corrigido += str(digito)
 
                 if (indice + 1) % 3 == 0:
