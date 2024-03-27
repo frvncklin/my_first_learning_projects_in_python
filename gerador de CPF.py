@@ -34,14 +34,25 @@ while True:
             numero = random.randint(0, 9)
             cpf += str(numero)
             contador += 1
+        
+        if cpf == (cpf[0]) * 9:     # Corrigindo automaticamente o CPF caso o gerador aleatorio forneça um CPF feito de uma sequência de números iguais (Ex: 999999999).
 
-    else:
+            contador = 0
+            cpf = ''
+            for contador in range(0,9):
+                numero = random.randint(0, 9)
+                cpf += str(numero)
+                contador += 1
+
+    # (Escolha inválida): Reinicia o programa caso o susuário tenha digitado uma entrada inválida.
+
+    else:   
         os.system("cls")       
         print("Digite uma opção válida!\nVamos tentar novamente.\n\n.................\n")
         continue
 
     
-    # --------- Verificando possíveis erros de entrada ---------
+    # --------- Verificando possíveis erros de entrada do usuário. ---------
 
 
     # Mensagem de Erro caso o CPF digitado tenha menos de 9 dígitos:
@@ -52,7 +63,7 @@ while True:
         print("Você precisa digitar apenas os 9 primeiros dígitos do CPF!\nVamos tentar novamente.\n\n.................\n")
         continue
 
-    # Mensagem de Erro caso o CPF digitado seja uma sequência de números iguais.
+    # Mensagem de Erro caso o CPF digitado seja uma sequência de números iguais (Ex: 999999999).
 
     elif cpf == (cpf[0]) * 9:
 
@@ -167,4 +178,3 @@ while True:
         os.system("cls")
         print("Encerrando! Muito obrigado!")
         break
-
