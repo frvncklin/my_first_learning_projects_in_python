@@ -5,16 +5,16 @@ while True:
     print("------------ GERADOR DE CPF ------------\n\nautor: daemon.dev\n\n")
     cpf = input("Digite os 9 primeiros dígitos do seu CPF (somente números):\n>>> ")
 
-    if len(cpf) != 9:
+    if len(cpf) != 9 and cpf.isdigit() == True:
 
         os.system("cls")       
-        print("Você precisa digitar todos os 9 dígitos do CPF!\nVamos tentar novamente.\n\n.................\n\n")
+        print("Você precisa digitar todos os 9 dígitos do CPF!\nVamos tentar novamente.\n\n.................\n")
         continue
 
     elif cpf.isdigit() == False:
 
         os.system("cls")       
-        print("Há uma letra no CPF, digite somente números!\nVamos tentar novamente.\n\n.................\n\n")
+        print("Há uma letra no CPF, digite somente números!\nVamos tentar novamente.\n\n.................\n")
         continue
 
     else:
