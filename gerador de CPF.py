@@ -100,6 +100,7 @@ while True:
             else:
 
                 if (indice + 1) == 9:
+                    cpf_corrigido += str(digito)
                     cpf_corrigido += "-"
 
                 elif (indice + 1) == 10:
