@@ -1,24 +1,55 @@
 import os
+import re
+import random
 
 while True:
 
     print("------------ GERADOR DE CPF ------------\n\nautor: daemon.dev\n\n")
-    cpf = input("Digite os 9 primeiros dígitos do seu CPF (somente números):\n>>> ")
+
+    # Menu de visualização. Dá ao usuário a escolha de gerar um cpf aleatório ou digitar os primeiros 9 dígitos manualmente.
+
+    menu = input("Deseja criar um CPF manualmente ou a partir de números aleatórios?\nDigite \"m\" para manual ou \"a\" para aleatório. >>> ").lower()
+
+    # (Escolha 1): Recebendo entrada de CPF manual.
+
+    if menu.startswith("m"):
+        
+        cpf = input("\n----> Digite os 9 primeiros dígitos do seu CPF:\n>>> ")
+
+        # Removendo quaisquer letras ou caracteres especiais que estejam no CPF digitado pelo usuário:
+
+        cpf = re.sub(
+            r'[^0-9]',
+            '',
+            cpf
+        )
+
+    # (Escolha 2): Criando CPF aleatório:
+        
+    elif menu.startswith("a"):
+
+        contador = 0
+        cpf = ''
+        for contador in range(0,9):
+            numero = random.randint(0, 9)
+            cpf += str(numero)
+            contador += 1
+
+    else:
+        os.system("cls")       
+        print("Digite uma opção válida!\nVamos tentar novamente.\n\n.................\n")
+        continue
+
+    
+    # --------- Verificando possíveis erros de entrada ---------
+
 
     # Mensagem de Erro caso o CPF digitado tenha menos de 9 dígitos:
 
     if len(cpf) != 9 and cpf.isdigit() == True:
 
         os.system("cls")       
-        print("Você precisa digitar todos os 9 dígitos do CPF!\nVamos tentar novamente.\n\n.................\n")
-        continue
-
-    # Mensagem de Erro caso o CPF digitado tenha uma ou mais letras.
-
-    elif cpf.isdigit() == False:
-
-        os.system("cls")       
-        print("Há uma letra no CPF, digite somente números!\nVamos tentar novamente.\n\n.................\n")
+        print("Você precisa digitar apenas os 9 primeiros dígitos do CPF!\nVamos tentar novamente.\n\n.................\n")
         continue
 
     # Mensagem de Erro caso o CPF digitado seja uma sequência de números iguais.
@@ -125,7 +156,7 @@ while True:
         # ------------> CPF GERADO COM SUCESSO. <-------------
 
     
-    # Dando a opção ao usuário para reiniciar o programa e gerar outro cpf:
+    # Dando a opção ao usuário para reiniciar o programa e gerar outro CPF:
 
 
     escolha = input("\n.........................\nDeseja continuar? 1 - sim ou 2 - não.\n>>> ")
