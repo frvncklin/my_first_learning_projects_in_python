@@ -91,7 +91,7 @@ while True:
         for indice, digito in enumerate(lista_numeros_cpf):
 
             if (indice + 1) < 9:
-                
+
                 cpf_corrigido += str(digito)
 
                 if (indice + 1) % 3 == 0:
@@ -103,11 +103,8 @@ while True:
                     cpf_corrigido += str(digito)
                     cpf_corrigido += "-"
 
-                elif (indice + 1) == 10:
-                    cpf_corrigido += str(f"{primeiro_digito}")
-            
-                elif (indice + 1) == 11:
-                    cpf_corrigido += str(f"{segundo_digito}")
+                elif (indice + 1) > 9:
+                    cpf_corrigido += str(digito)
 
         print(f"\n---> O seu CPF será: {cpf_corrigido}") 
 
