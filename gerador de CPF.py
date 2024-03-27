@@ -28,21 +28,15 @@ while True:
         
     elif menu.startswith("a"):
 
-        contador = 0
         cpf = ''
-        for contador in range(0,9):
-            numero = random.randint(0, 9)
-            cpf += str(numero)
-            contador += 1
+        for contador in range(9):
+            cpf += str(random.randint(0, 9))
         
         if cpf == (cpf[0]) * 9:     # Corrigindo automaticamente o CPF caso o gerador aleatorio forneça um CPF feito de uma sequência de números iguais (Ex: 999999999).
 
-            contador = 0
             cpf = ''
-            for contador in range(0,9):
-                numero = random.randint(0, 9)
-                cpf += str(numero)
-                contador += 1
+            for contador in range(9):
+                cpf += str(random.randint(0, 9))
 
     # (Escolha inválida): Reinicia o programa caso o susuário tenha digitado uma entrada inválida.
 
