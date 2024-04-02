@@ -17,7 +17,7 @@ def verificar_multiplo(numero, multiplo):         # Essa função checa se os pa
 def verificador_e_transformador_numero_inteiro(numero):     # Essa função vai verificar e transformar as entradas do usuário em um número inteiro, retornando com ele transformado.
 
 
-    # Caso o parãmetro seja inteiro e tiver menos de 8 algarismos, transformar a str de entrada em um int diretamente.
+    # Caso o parãmetro seja inteiro e tiver até 8 algarismos, transformar a str de entrada em um int diretamente.
     if numero.isdigit() == True and "." not in numero and len(numero) <= 8:
 
         numero = int(numero)
