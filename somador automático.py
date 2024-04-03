@@ -35,10 +35,11 @@ for indice, item in enumerate(numeros):
     numeros[indice] = numeros[indice].strip()
     numeros[indice] = transformador_numero(numeros[indice])
 
-    # Se o programa detectar que o transformador falhou. Tratar o erro e corrigir o número.
+    # Se o programa detectar que o transformador falhou. Tratar o erro e pedir ao usuário para corrigir.
     if type(numeros[indice]) == str:
-        print(f"\n---> Você digitou o número inválido {numeros[indice]} ---> Por favor corrija-o:", end="")
+        print(f"\n---> Você digitou o número inválido [{numeros[indice]}] ---> Por favor corrija-o:", end="")
 
+        # Recebendo correção do usuário. Caso ele insista no erro, fazer um loop até que ele digite um número válido.
         while True:
             numeros[indice] = input("\n>>> ")
 
@@ -46,4 +47,5 @@ for indice, item in enumerate(numeros):
                 numeros[indice] = transformador_numero(numeros[indice])
                 break
 
+# Imprimindo a soma.
 print(f"\nA soma total destes números é:\n--------> {sum(numeros):.2f}")
