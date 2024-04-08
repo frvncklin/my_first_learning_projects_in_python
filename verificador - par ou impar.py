@@ -2,7 +2,7 @@ import os
 
 # Determinando as funções que iremos utilizar:
 
-# FUNÇÃO 1 --> Transformar entrada do usuário "str" em número e crorrigí-la se for inválida.
+# FUNÇÃO 1 --> Transformar entrada do usuário "str" em número e corrigí-la se for inválida.
 
 def transformador_numero(numero_tranf):
 
@@ -118,16 +118,16 @@ def determinador_par_impar(numero):
 
     par = numero % 2 == 0
     impar = numero % 3 == 0
-    primo = numero % 2 != 0 and numero % 3 != 0
+    excecao = numero % 2 != 0 and numero % 3 != 0
 
     if par:
-        mensagem = f"----> O número {numero} é PAR."
+        mensagem = f"----> O número [{numero}] é PAR."
         return mensagem
     if impar:
-        mensagem = f"----> O número {numero} é ÍMPAR."
+        mensagem = f"----> O número [{numero}] é ÍMPAR."
         return mensagem
-    if primo:
-        mensagem = f"----> O número {numero} é PRIMO."
+    if excecao:
+        mensagem = f"----> O número [{numero}] NÃO é PAR nem ÍMPAR."
         return mensagem
 
 # FUNÇÃO 3 ---> Cria do design do nosso cabeçalho.
