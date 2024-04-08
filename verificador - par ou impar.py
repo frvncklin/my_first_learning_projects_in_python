@@ -56,7 +56,6 @@ def transformador_numero(numero_tranf):
                 # Se for um ponto, continua.
                 elif e_ponto:
                     contador_ponto_virgula += 1
-                    continue
                 
                 # Se tiver mais de um ponto ou vírgula, para.
                 if contador_ponto_virgula > 1:
