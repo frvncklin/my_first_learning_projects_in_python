@@ -1,27 +1,11 @@
 
 # ------- Closure -------
 
-# def criar_saudacao(saudacao, nome):
-#     return f"{saudacao}, {nome}."
-
-# s1 = criar_saudacao("Bom dia", "Victor")
-# s2 = criar_saudacao("Bom dia", "Gabi")
-
-# print(s1)
-# print(s2)
-
-# def saudacoes_multiplas(mensagem, *args):
-
-#     for argumento in args:
-#         print(criar_saudacao(mensagem, argumento))
-
-# saudacoes_multiplas("Bom dia", "Victor", "Gabi", "Fernanda", "Dita", "Beto", "Claudia")
-
 import os
 
-def criar_saudacao(saudacao, nome):
-    def saudar():
-        return f'{saudacao}, {nome}'
+def criar_saudacao(saudacao, mensagem):
+    def saudar(nome):
+        return f'{saudacao}, {nome}. {mensagem}'
     return saudar
 
 def cabecalho(entrada):
@@ -37,7 +21,9 @@ saudacao_noite = criar_saudacao("Boa noite", "que noite relaxante!")
 cabecalho_programa = cabecalho("Mostrador de Horário --> Aprendendo Closure")
 
 print(cabecalho_programa())
-print("Digite que horas são:")
+nome = input("---> Digite seu nome:\n>>> ")
+print(f"\nQue horas são {nome}? (Ex: 10:24 ou 18:32)")
+
 
 while True:
 
@@ -69,28 +55,22 @@ while True:
     if 0 <= horas <= 12 and sinalizador == True and minutos <= 59:
         os.system("cls")
         print(cabecalho_programa())
-        print(f"{saudacao_manha()}.\n----> São {horario}hrs.")
+        print(f"{saudacao_manha(nome)}.\n----> São {horario}hrs.")
         print("\nMuito obrigado!")
         break
     elif 13 <= horas <= 17 and sinalizador == True and minutos <= 59:
         os.system("cls")
         print(cabecalho_programa())
-        print(f"{saudacao_tarde()}.\n----> São {horario}hrs.")
+        print(f"{saudacao_tarde(nome)}.\n----> São {horario}hrs.")
         print("\nMuito obrigado!")
         break
     elif 18 <= horas <= 23 and sinalizador == True and minutos <= 59:
         os.system("cls")
         print(cabecalho_programa())
-        print(f"{saudacao_noite()}.\n----> São {horario}hrs.")
+        print(f"{saudacao_noite(nome)}.\n----> São {horario}hrs.")
         print("\nMuito obrigado!")
         break
     else:
         os.system("cls")
         print(cabecalho_programa())
         print(f"Horário inválido.\nVamos tentar novamente!")
-
-
-
-
-        
-
