@@ -1,5 +1,7 @@
 import os
 
+negativo = False
+
 # Determinando as funções que iremos utilizar:
 
 # FUNÇÃO 1 --> Transformar entrada do usuário "str" em número e corrigí-la se for inválida.
@@ -133,8 +135,7 @@ def determinador_par_impar(numero):
 # FUNÇÃO 3 ---> Cria do design do nosso cabeçalho.
         
 def cabecalho(entrada):
-    titulo = print(f"------------ {entrada.upper()} ------------\n\nautor: daemon.dev\n\n")
-    return titulo
+    print(f"------------ {entrada.upper()} ------------\n\nautor: daemon.dev\n\n")
 
 # ----------------------------------------------
 
