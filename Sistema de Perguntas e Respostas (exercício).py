@@ -41,7 +41,7 @@ for chave, valor in perguntas[i].items():
     print(f"c) {perguntas[i]['Opções'][2]}")
     print(f"d) {perguntas[i]['Opções'][3]}")
 
-    escolha_usuario = input("\n>>> ")
+    escolha_usuario = input("\n>>> ").lower()
 
     if i == 0:
         if escolha_usuario.startswith("c"):
