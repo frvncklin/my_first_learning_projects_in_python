@@ -22,7 +22,7 @@ def definir_ordenamento_de_lista(lista):
         for chave in lista[indice].keys():
             chaves.add(chave)
     
-    escolher_chave = input(f"=> Digite a chave que deseja usar para ordenar a lista:\n---> Não esqueça de digitar, sem aspas, exatamente da forma como ela está escrita, caso contrário irá dar erro!\n{chaves}\n>>> ")
+    escolher_chave = input(f"---> Digite a chave que deseja usar para ordenar a lista:\nNão esqueça de digitar, sem aspas, exatamente da forma como ela está escrita, caso contrário irá dar erro!\n{chaves}\n>>> ")
 
     def ordenar(item):
         return item[f'{escolher_chave}']
@@ -54,4 +54,3 @@ print("\n................Ordenando..................\n")
 
 print()
 mostrar_dicionarios_separadamente_em_listas_de_dicionarios(pessoas)
-
