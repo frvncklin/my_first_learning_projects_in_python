@@ -22,7 +22,16 @@ def definir_ordenamento_de_lista(lista):
         for chave in lista[indice].keys():
             chaves.add(chave)
     
-    escolher_chave = input(f"---> Digite a chave que deseja usar para ordenar a lista:\nNão esqueça de digitar, sem aspas, exatamente da forma como ela está escrita, caso contrário irá dar erro!\n{chaves}\n>>> ")
+    escolher_chave = input(f"---> Digite a chave que deseja usar para ordenar a lista:\nNão esqueça de digitar, sem aspas, exatamente da forma como ela está escrita.\n{chaves}\n>>> ")
+    escolher_chave = escolher_chave.strip().lower()
+
+    if escolher_chave not in chaves:
+        print("\nVocê digitou uma chave inválida!\nDigite uma chave correta:\n")
+        while True:
+            escolher_chave = input(">>> ").strip().lower()
+            if escolher_chave in chaves:
+                break
+
 
     def ordenar(item):
         return item[f'{escolher_chave}']
