@@ -26,7 +26,7 @@ import os
 # Defining functions and other useful tools.
 
 # Picking up the letters in the ascii alfabeth for us to generate our random alien code in the game.
-letras = string.ascii_uppercase
+words = string.ascii_uppercase
 
 
 # This funcion converts and also treats a string inserted by the user in an int number.
@@ -98,11 +98,11 @@ def alien_code_generator():
         dice = random.randint(1, 2)
 
         if dice == 1:   # If the dice rolls 1, then we generate a random word from the ascii alfabeth and add it to the alien code.
-            word = random.choice(letras)
-            alien_code += word
+            digit = random.choice(words)
+            alien_code += digit
         elif dice == 2: # If the dice rolls 2, then we generate a random int number from 0 to 9 and add it to the alien code
-            word = str(random.randint(0, 9))
-            alien_code += word
+            digit = str(random.randint(0, 9))
+            alien_code += digit
 
     return alien_code
 
