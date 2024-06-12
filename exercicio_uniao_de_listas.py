@@ -13,6 +13,7 @@
 
 def decorator_fabric(name):
     print(f'{name}', end=' ')
+
     def function_fabric(func):
         print(f'---> Saving function: {func.__name__}')
 
@@ -21,6 +22,7 @@ def decorator_fabric(name):
             return res
         print("Function saved!")
         return nested_function
+    
     return function_fabric
 
 @decorator_fabric("First")
