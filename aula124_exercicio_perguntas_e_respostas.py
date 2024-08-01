@@ -31,7 +31,7 @@ def validate_response(user_response):
 
 import os, time
 
-correct_answers = 0
+correct_answers_qt = 0
 possible_options = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k']
 
 for pergunta in perguntas:
@@ -53,7 +53,7 @@ for pergunta in perguntas:
             if resposta_user == resposta_correta:   # Checking if the user response is the right one.
                 print()
                 print("---> Correto!")
-                correct_answers += 1
+                correct_answers_qt += 1
             else:
                 print()
                 print("---> Errou...")
@@ -69,14 +69,17 @@ time.sleep(5)
 os.system('cls')
 
 # Displaying customized message according to the user's responses.
-if correct_answers == len(perguntas):
+if correct_answers_qt == len(perguntas):
     print('Parabéns! Você acertou todas as perguntas!')
-elif len(perguntas) / 2 <= correct_answers < len(perguntas):
-    print(f'Parabéns! Você acertou {correct_answers} respostas.\nRestam apenas {(len(perguntas) - correct_answers)}!')
-elif correct_answers == 0:
+elif len(perguntas) / 2 <= correct_answers_qt < len(perguntas):
+    print(f'Parabéns! Você acertou {correct_answers_qt} respostas.\nRestam apenas {(len(perguntas) - correct_answers_qt)}!')
+elif correct_answers_qt == 0:
     print(f'Não desista! Todo mundo começa de algum lugar.\nVocê não acertou nenhuma pergunta... mas eu também já estive em seu lugar.\n\nNão abaixe a cabeça e siga em frente, pois você vai conseguir!')
 else:
-    print(f'Que pena! Você acertou {correct_answers} perguntas...\nNão desista! Você precisa acertar mais {len(perguntas) - correct_answers}.')
+    print(f'Que pena! Você acertou {correct_answers_qt} perguntas...\nNão desista! Você precisa acertar mais {len(perguntas) - correct_answers_qt}.')
+
+print()
+print(f'Nota: {correct_answers_qt}')
 
 # Essa solução é escalável. Se você quiser fazer isso com o seu questionário.
 # This solution is scalable. If you may wish, you can do it with your own questionary.
