@@ -13,9 +13,9 @@ def check_range(number, range_limit):
 
         if number in range(range_limit):
             return number
-        
-        number = input('Incorrect number, type a valid one (not in the range): ')
-        number = str_to_int(number)
+        else:
+            number = input('Incorrect number, type a valid one (not in the range): ')
+            number = str_to_int(number)
 
 perguntas = [
     {
@@ -44,18 +44,17 @@ for pergunta in perguntas:
     for chave, valor in pergunta.items():
 
         if chave == 'Opções':   # Printing options.
-            qtd_opcoes = len(perguntas[perguntas.index(pergunta)]['Opções'])
-            for i in range(qtd_opcoes):
-                opcao = perguntas[perguntas.index(pergunta)]['Opções'][i]
+            for i, opcao in enumerate(pergunta['Opções']):
                 print(f'{i}) {opcao}')
             continue
 
         elif chave == 'Resposta': # Recieving answer from user.
             escolha_user = input('\nDigite sua resposta: ')
             escolha_user = str_to_int(escolha_user)     # Checking if the user's answer is a valid number (int). If not, applying correction.
-            escolha_user = check_range(escolha_user, qtd_opcoes)    # Checking if the user's answer is in the range. If not, applying correction.
-            resposta_user = perguntas[perguntas.index(pergunta)]['Opções'][escolha_user]
-            resposta_correta = perguntas[perguntas.index(pergunta)]['Resposta'] 
+            escolha_user = check_range(escolha_user, len(pergunta['Opções']))    # Checking if the user's answer is in the range. If not, applying correction.
+            
+            resposta_user = pergunta['Opções'][escolha_user]
+            resposta_correta = pergunta['Resposta'] 
     
             if resposta_user == resposta_correta:
                 print()
