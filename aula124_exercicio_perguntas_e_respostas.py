@@ -1,22 +1,5 @@
 # Exercício - sistema de perguntas e respostas
 
-def str_to_int(number):
-    while True:
-        try:
-            number = int(number)
-            return number
-        except:
-            number = input('Invalid number, type a valid one: ')
-
-def check_range(number, range_limit):
-    while True:
-
-        if number in range(range_limit):
-            return number
-
-        number = input('Incorrect number, type a valid one (not in the range): ')
-        number = str_to_int(number)
-
 perguntas = [
     {
         'Pergunta': 'Quanto é 2+2?',
@@ -35,9 +18,21 @@ perguntas = [
     },
 ]
 
+def check_response(user_response):
+    while True:
+        if user_response in possible_options[0 : len(pergunta['Opções'])] and len(user_response) == 1:
+            return user_response
+
+        user_response = input('Incorrect option, type a valid one: ')
+
+def validate_response(user_response):
+    user_response = pergunta['Opções'][possible_options.index(user_response)]
+    return user_response
+
 import os, time
 
-acertos = 0
+correct_answers = 0
+possible_options = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k']
 
 for pergunta in perguntas:
 
@@ -45,21 +40,20 @@ for pergunta in perguntas:
 
         if chave == 'Opções':   # Printing options.
             for i, opcao in enumerate(pergunta['Opções']):
-                print(f'{i}) {opcao}')
+                print(f'{possible_options[i]}) {opcao}')
             continue
 
         elif chave == 'Resposta': # Recieving answer from user.
-            escolha_user = input('\nDigite sua resposta: ')
-            escolha_user = str_to_int(escolha_user)     # Checking if the user's answer is a valid number (int). If not, applying correction.
-            escolha_user = check_range(escolha_user, len(pergunta['Opções']))    # Checking if the user's answer is in the range. If not, applying correction.
+            resposta_user = input('\nDigite sua resposta: ')
+            resposta_user = check_response(resposta_user)    # Checking if the user's answer is a valid one.
+            resposta_user = validate_response(resposta_user) # Converting the user's answer in it's valid equivalent in the options list, to be compared to the correct answer accordingly.
             
-            resposta_user = pergunta['Opções'][escolha_user]    
             resposta_correta = pergunta['Resposta'] 
     
             if resposta_user == resposta_correta:   # Checking if the user response is the right one.
                 print()
                 print("---> Correto!")
-                acertos += 1
+                correct_answers += 1
             else:
                 print()
                 print("---> Errou...")
@@ -75,14 +69,14 @@ time.sleep(5)
 os.system('cls')
 
 # Displaying customized message according to the user's responses.
-if acertos == len(perguntas):
+if correct_answers == len(perguntas):
     print('Parabéns! Você acertou todas as perguntas!')
-elif len(perguntas) / 2 <= acertos < len(perguntas):
-    print(f'Parabéns! Você acertou {acertos} respostas.\nRestam apenas {(len(perguntas) - acertos)}!')
-elif acertos == 0:
+elif len(perguntas) / 2 <= correct_answers < len(perguntas):
+    print(f'Parabéns! Você acertou {correct_answers} respostas.\nRestam apenas {(len(perguntas) - correct_answers)}!')
+elif correct_answers == 0:
     print(f'Não desista! Todo mundo começa de algum lugar.\nVocê não acertou nenhuma pergunta... mas eu também já estive em seu lugar.\n\nNão abaixe a cabeça e siga em frente, pois você vai conseguir!')
 else:
-    print(f'Que pena! Você acertou {acertos} perguntas...\nNão desista! Você precisa acertar mais {len(perguntas) - acertos}.')
+    print(f'Que pena! Você acertou {correct_answers} perguntas...\nNão desista! Você precisa acertar mais {len(perguntas) - correct_answers}.')
 
 # Essa solução é escalável. Se você quiser fazer isso com o seu questionário.
 # This solution is scalable. If you may wish, you can do it with your own questionary.
