@@ -13,9 +13,9 @@ def check_range(number, range_limit):
 
         if number in range(range_limit):
             return number
-        else:
-            number = input('Incorrect number, type a valid one (not in the range): ')
-            number = str_to_int(number)
+
+        number = input('Incorrect number, type a valid one (not in the range): ')
+        number = str_to_int(number)
 
 perguntas = [
     {
@@ -53,10 +53,10 @@ for pergunta in perguntas:
             escolha_user = str_to_int(escolha_user)     # Checking if the user's answer is a valid number (int). If not, applying correction.
             escolha_user = check_range(escolha_user, len(pergunta['Opções']))    # Checking if the user's answer is in the range. If not, applying correction.
             
-            resposta_user = pergunta['Opções'][escolha_user]
+            resposta_user = pergunta['Opções'][escolha_user]    
             resposta_correta = pergunta['Resposta'] 
     
-            if resposta_user == resposta_correta:
+            if resposta_user == resposta_correta:   # Checking if the user response is the right one.
                 print()
                 print("---> Correto!")
                 acertos += 1
